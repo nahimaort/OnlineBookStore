@@ -12,23 +12,26 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css"> 
         <title>Purchase Page</title>
     </head>
     <body>
+        <jsp:include page="header.jsp"></jsp:include>  
         <h1>Purchase Overview</h1>
         <%  
             ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
             Receipt receipt = new Receipt(cart);
             for (Book book : cart.getShoppingCart().keySet()) { 
         %>
-        <%= cart.getCuantity(book) %> <%= book.getTitle() %>......... <%= book.getPrice() * cart.getCuantity(book) %>
+        <br><%= cart.getCuantity(book) %> <%= book.getTitle() %>......... <%= book.getPrice() * cart.getCuantity(book) %>
         <% } %>
         <br>Base total: <%= receipt.getPriceWithoutIGIC() %><br>
         I.G.I.C. (7%): <%= receipt.calculateIGIC(receipt.getPriceWithoutIGIC()) %><br>
         <h2>Total: <%= receipt.getTotalAmount() %></h2><br>
          <form action="FrontServlet">
                 <input type="hidden" name="command" value="PerformPurchaseCommand" />
-                <input type="submit" value="Complete purchase" />
+                <input type="submit" value="Purchase" />
          </form>
+         <jsp:include page="footer.jsp"/>
     </body>
 </html>

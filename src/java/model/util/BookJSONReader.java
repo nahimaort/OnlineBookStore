@@ -23,8 +23,6 @@ public class BookJSONReader implements Reader {
             JSONArray bookList = (JSONArray) obj;
             for ( Object book : bookList) {
                 JSONObject bookObj = (JSONObject) book;
-                float price = (float) Math.round(Math.random() * (30 - 60) + 30 * 100)/100;
-                bookObj.put("price", Float.toString(price));
                 catalog.addToCatalogue(parseObject(bookObj));
             }
  
@@ -35,10 +33,11 @@ public class BookJSONReader implements Reader {
 
     private Book parseObject(JSONObject book) {
         Book newBook;
+        float price = (float) Math.round(Math.random() * (30 - 60) + 30 * 100)/100;
         newBook = new Book((String) book.get("title"), (String) book.get("isbn"),
                 (long) book.get("pageCount"), (JSONObject) book.get("publishedDate"), (String) book.get("thumbnailUrl"),
                 (String) book.get("shortDescription"), (String) book.get("longDescription"),
-                (String) book.get("status"), (JSONArray) book.get("authors"), (JSONArray) book.get("categories"), Float.parseFloat((String) book.get("price")));
+                (String) book.get("status"), (JSONArray) book.get("authors"), (JSONArray) book.get("categories"), price);
         return newBook;
     }
 }

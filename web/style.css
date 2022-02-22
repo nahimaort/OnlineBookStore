@@ -1,0 +1,243 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0px;
+    padding: 0px;
+    font-family: monospace;
+    background-color: #ffffff;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"]{
+    font-size: 0.7rem;
+    height: 30px;
+    width:120px;
+    background-color: #0b9d8a;
+    color: #ffffff;
+    margin: 0px 5px;
+    border-radius: 20px;
+}
+
+a{
+    text-decoration: none;
+}
+
+nav{
+    box-shadow: 0px 0px 25px rgba(0,0,0,0.05);
+}
+
+.contact{
+    border: 1px solid rgba(0,0,0,0.05);
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone{
+    color: rgba(0,0,0,0.5);
+    margin-left: 50px;
+    font-size: 0.9rem;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 60px;
+}
+
+.logo img{
+    height: 100px;
+}
+
+.menu{
+    display: flex;
+}
+
+.menu li{
+    margin: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    text-transform: uppercase;
+}
+
+.menu li a{
+    color: #555555;
+}
+
+.menu a:hover{
+    color: #0b9d8a;
+    transition: all ease 0.3s;
+}
+
+.shopping-cart{
+    position: relative;
+}
+
+.shopping-cart img {
+    height: 30px;
+}
+
+.social-media img {
+    height: 25px;
+}
+
+footer{
+    border-top: 2px solid rgba(0,0,0,0.1);
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.data{
+    font-size: 0.9rem;
+    color: #4e4e4e;
+    letter-spacing: 1px;
+}
+
+.subscribe input{
+    margin-top: 10px;
+    width:240px;
+    height: 43px;
+    padding: 0px 20px;
+    border: 1px solid rgba(0,0,0,0.1);
+    outline: none;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.05);
+}
+
+.subscribe input[type="submit"]{
+    width:120px;
+    background-color: #0b9d8a;
+    color: #ffffff;
+    margin: 0px 5px;
+}
+
+.product-container{
+    width:90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.product-container-sc{
+    width:100%;
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.product-box{
+    display: flex;
+    flex-grow: 0.5;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #f7f7f7;
+    border-radius: 10px;
+    margin: 20px;
+    width: 20em;
+}
+
+.product-box-sc{
+    display: flex;
+    flex-grow: 0.5;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #f7f7f7;
+    border-radius: 10px;
+    margin: 20px;
+    width: 100%;
+}
+
+.product-img{
+    width:200px;
+    height: 210px;
+    margin: 20px;
+    cursor: pointer;
+    position: relative;
+}
+.product-img img{
+    width:100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.product-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    border-top: 1px solid #f3f3f3;
+}
+
+.product-details input[type="submit"]{
+    margin-top: 20px;
+}
+    
+.product-box:hover{
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+}
+
+.product-box-sc:hover{
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+}
+    
+.add-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background-color: #0b9d8a;
+    display: none;
+    animation: fade 0.3s; 
+}
+
+.add-cart:hover{
+    background-color: #f76b6a;
+    transition: all ease 0.2s;
+}
+
+.product-box:hover .add-cart{
+    display: flex;
+}
+
+.book-display{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-box strong{
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: #1b1919;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 40px;
+    padding: 5px 30px;
+    border: 1px solid #e0e0e0;
+}
+
+.buy-now img{
+    width:10em;
+    height:2em;
+
+}

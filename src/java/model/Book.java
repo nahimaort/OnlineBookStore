@@ -50,8 +50,11 @@ public class Book {
     
     public String getParsedDate() {
         JSONObject dateObj = this.getDate();
-        String strDate = (String) dateObj.get("$date");
-        String parsedDate = strDate.substring(0, strDate.indexOf('T'));
+        String parsedDate = "Unknown";
+        if (dateObj != null) {
+            String strDate = (String) dateObj.get("$date");
+            parsedDate = strDate.substring(0, strDate.indexOf('T'));
+        }
         return parsedDate;
     }
     

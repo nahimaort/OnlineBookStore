@@ -9,10 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css"> 
         <title>Command Error Page</title>
     </head>
     <body>
+        <jsp:include page="header.jsp"></jsp:include>  
         An unexpected error has ocurred<br>
         <a href="index.jsp">Click here to go back to the book catalogue</a>
+        <jsp:include page="footer.jsp"/>
+        
     </body>
 </html>

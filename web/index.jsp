@@ -13,42 +13,57 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="style.css"> 
         <title>Book catalogue</title>
     </head>
     <body>
-        <h1>Book Catalogue</h1>
-        
-        
+        <jsp:include page="header.jsp"></jsp:include>  
         
         <%! 
-            ShoppingCart cart = new ShoppingCart();
             Catalogue catalogue = new Catalogue("/Users/nahimaortega/NetBeansProjects/OnlineStore/books_ulr.json");
         %>
         
         <%
-            session.setAttribute("cart", cart);
+            ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+            if (cart == null) {
+                cart = new ShoppingCart();
+                session.setAttribute("cart", cart);
+            }
+           
             session.setAttribute("catalogue", catalogue);
-            %>
-        
-        <a href="shoppingcartview.jsp">View Cart</a>
-        
-        <%
-            for (Book book : catalogue.getCatalogue()) { 
         %>
-        <div>
-            <br><strong> Title: <%= book.getTitle() %> </strong><br>
-            <img src=<%= book.getThumbnailUrl() %> /><br>
-            ISBN: <%= book.getIsbn() %><br>
-            Number of pages: <%= book.getPages() %><br>
-            Date: <%= book.getParsedDate() %><br>
-            Authors: <%= book.getParsedAuthors()%><br>
-            Price <%= book.getPrice() %><br>
-            <form action="FrontServlet">
-                <input type="hidden" name="command" value="AddToCartCommand" />
-                <input type="hidden" name="isbn" value=<%= book.getIsbn() %> />
-                <input type="submit" value="Add to cart" />
-            </form>
-        <% }%>
+        
+    <section class="book-display">   
+        <h1>Book Catalogue</h1>
+        <div class="product-container">
+            <%
+                for (Book book : catalogue.getCatalogue()) { 
+            %>
+            <div class="product-box">
+                <br><strong> Title: <%= book.getTitle() %> </strong><br>
+                <div class="product-img">
+                    <img src=<%= book.getThumbnailUrl() %> /><br>
+                </div>
+                <div class="product-details">
+                    ISBN: <%= book.getIsbn() %><br>
+                    Number of pages: <%= book.getPages() %><br>
+                    Date: <%= book.getParsedDate() %><br>
+                    Authors: <%= book.getParsedAuthors()%><br>
+                    Price <%= book.getPrice() %><br>
+                    <form action="FrontServlet">
+                        <input type="hidden" name="command" value="AddToCartCommand" />
+                        <input type="hidden" name="isbn" value=<%= book.getIsbn() %> />
+                        <input type="submit" value="Add to cart" class="add-cart"/>
+                    </form>
+                </div>
+            </div>   
+            <% }%>
         </div>
+        
+        </section>
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>
+
+
+ 
